@@ -1,0 +1,197 @@
+:root{
+  --bg1:#f7f2ff;
+  --bg2:#fff0f7;
+  --card:#ffffffcc;
+  --ink:#2a2440;
+  --muted:#6a5a86;
+  --line:#e9ddff;
+  --pink:#ff7ab6;
+  --purple:#8b6cff;
+  --shadow: 0 10px 30px rgba(70, 40, 120, .12);
+  --r: 18px;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(900px 500px at 20% 10%, var(--bg2), transparent 70%),
+    radial-gradient(900px 500px at 80% 20%, var(--bg1), transparent 70%),
+    linear-gradient(180deg, #fff, #fbf8ff);
+}
+
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+.hero{ padding: 22px 6px 16px; }
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(139,108,255,.18), rgba(255,122,182,.18));
+  border:1px solid var(--line);
+  color: var(--muted);
+  font-weight:700;
+  letter-spacing:.04em;
+}
+h1{ margin:12px 0 6px; font-size: clamp(26px, 4vw, 40px); }
+.sub{ margin:0 0 12px; color:var(--muted); line-height:1.6; }
+
+.homeLink{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius: 999px;
+  text-decoration:none;
+  border:1px solid var(--line);
+  background:#fff;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.card{
+  margin-top: 10px;
+  border:1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  padding: 12px;
+  background: linear-gradient(90deg, rgba(139,108,255,.10), rgba(255,122,182,.10));
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;
+}
+.tab{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius: 999px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:800;
+  color:var(--muted);
+}
+.tab.is-active{
+  background: linear-gradient(90deg, rgba(139,108,255,.22), rgba(255,122,182,.22));
+  color: var(--ink);
+}
+
+.ruleBox{ padding: 14px 16px 4px; }
+.ruleBox h2{ margin:8px 0; font-size: 16px; }
+.ruleBox ul{ margin: 0 0 10px 18px; color: var(--muted); line-height:1.6; }
+
+.form{ padding: 10px 16px 18px; }
+
+.grid{
+  display:grid;
+  gap:14px;
+  grid-template-columns: 1fr 1fr;
+}
+.field{ display:flex; flex-direction:column; gap:6px; }
+.field--full{ grid-column: 1 / -1; }
+
+.field span{ font-weight:800; color: var(--ink); }
+.req{
+  margin-left:8px;
+  font-size: 12px;
+  color:#fff;
+  background: linear-gradient(90deg, var(--purple), var(--pink));
+  padding:2px 8px;
+  border-radius: 999px;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius: 12px;
+  border:1px solid var(--line);
+  outline:none;
+  background:#fff;
+  color: var(--ink);
+}
+input:focus, textarea:focus{
+  border-color: rgba(139,108,255,.6);
+  box-shadow: 0 0 0 4px rgba(139,108,255,.12);
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+.err{
+  color:#b0004b;
+  font-weight:800;
+  min-height: 1.2em;
+}
+
+.notice{
+  border:1px dashed rgba(139,108,255,.35);
+  background: rgba(255,255,255,.7);
+  border-radius: 14px;
+  padding: 12px 12px;
+  color: var(--muted);
+  line-height:1.6;
+}
+
+.agree{
+  grid-column: 1 / -1;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color: var(--muted);
+  font-weight:800;
+}
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; }
+.btn{
+  padding:12px 18px;
+  border-radius: 14px;
+  border: 0;
+  cursor:pointer;
+  font-weight:900;
+  color:#fff;
+  background: linear-gradient(90deg, var(--purple), var(--pink));
+  box-shadow: var(--shadow);
+}
+.btn--ghost{
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+
+.result{
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-weight:900;
+}
+
+.foot{
+  padding: 12px 16px 16px;
+  color: var(--muted);
+  border-top:1px solid var(--line);
+}
+
+/* honeypot（見せない） */
+.hp{
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+@media (max-width: 720px){
+  .grid{ grid-template-columns: 1fr; }
+}

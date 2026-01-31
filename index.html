@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>アクシオ お問い合わせBOX</title>
+  <meta name="description" content="アクシオ（プログラミング教室）お問い合わせフォーム：質問箱・相談窓口・無料体験・入会希望" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="badge">Accio</div>
+      <h1>お問い合わせBOX</h1>
+      <p class="sub">
+        ご質問・ご相談・無料体験・入会希望はこちらからどうぞ。<br />
+        内容を確認後、<b>3営業日以内</b>にご連絡いたします。
+      </p>
+
+      <a class="homeLink"
+         href="https://accio29113.my.canva.site/programming-school"
+         target="_blank" rel="noopener">
+        アクシオ ホームページを見る
+      </a>
+    </header>
+
+    <section class="card">
+      <div class="tabs" role="tablist" aria-label="お問い合わせ種別">
+        <button class="tab is-active" role="tab" aria-selected="true" data-type="質問箱">質問箱</button>
+        <button class="tab" role="tab" aria-selected="false" data-type="相談窓口">相談窓口</button>
+        <button class="tab" role="tab" aria-selected="false" data-type="無料体験">無料体験</button>
+        <button class="tab" role="tab" aria-selected="false" data-type="入会希望">入会希望</button>
+      </div>
+
+      <div class="ruleBox">
+        <h2>ご利用ルール（必ずお読みください）</h2>
+        <ul>
+          <li>他者を傷つける内容、個人情報の晒し、誹謗中傷、脅迫、いたずら目的の送信は禁止です。</li>
+          <li>悪質と判断した場合は、送信内容を記録のうえ、関係機関へ相談・法的措置を含めて対応します。</li>
+        </ul>
+      </div>
+
+      <form
+        id="contactForm"
+        class="form"
+        action="https://formspree.io/f/mjgrdzav"
+        method="POST"
+        novalidate
+      >
+        <!-- 種別 -->
+        <input type="hidden" id="inquiryType" name="inquiryType" value="質問箱" />
+
+        <!-- honeypot（スパム対策：人は触らん想定） -->
+        <div class="hp" aria-hidden="true">
+          <label>会社名 <input type="text" id="company" name="company" autocomplete="off"></label>
+        </div>
+
+        <div class="grid">
+          <label class="field">
+            <span>お名前<span class="req">必須</span></span>
+            <input id="name" name="name" type="text" placeholder="例）山田 花子" required maxlength="40" />
+            <small class="err" data-err-for="name"></small>
+          </label>
+
+          <label class="field">
+            <span>保護者氏名（任意）</span>
+            <input id="guardian" name="guardian" type="text" placeholder="例）山田 太郎" maxlength="40" />
+          </label>
+
+          <label class="field">
+            <span>連絡先<span class="req">必須</span></span>
+            <input id="contact" name="contact" type="text"
+              placeholder="メール or 電話（例）example@mail.com / 090-1234-5678"
+              required maxlength="60" />
+            <small class="err" data-err-for="contact"></small>
+          </label>
+
+          <label class="field field--full">
+            <span>メッセージ<span class="req">必須</span></span>
+            <textarea id="message" name="message" rows="6" placeholder="内容をご記入ください" required maxlength="1200"></textarea>
+            <div class="meta">
+              <small id="count">0 / 1200</small>
+              <small class="err" data-err-for="message"></small>
+            </div>
+          </label>
+
+          <label class="agree field--full">
+            <input type="checkbox" id="agree" />
+            <span>上記ルールに同意して送信します<span class="req">必須</span></span>
+          </label>
+
+          <div class="notice field--full">
+            <p>
+              返信は<b>3営業日以内</b>に行います。万が一返信がない場合、メールが届いていない可能性がありますので、
+              お手数ですが再度ご連絡ください。
+            </p>
+            <p>
+              また、<b>迷惑メール設定</b>や<b>ドメイン指定受信</b>により、返信が届かない場合があります。
+              受信設定をご確認ください。
+            </p>
+          </div>
+
+          <div class="actions field--full">
+            <button id="sendBtn" type="submit" class="btn">送信</button>
+            <button id="clearBtn" type="button" class="btn btn--ghost">クリア</button>
+          </div>
+
+          <p id="result" class="result" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <footer class="foot">
+        <small>※送信内容は確認のうえ、順次ご返信いたします。</small>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
