@@ -74,7 +74,7 @@ form.addEventListener("submit", async (e) => {
 
   // 連投防止
   if(!cooldownOk()){
-    resultEl.textContent = "連続送信は少し待ってな（約1分）。";
+    resultEl.textContent = "連続送信の場合は少しお待ちください（約1分）。";
     return;
   }
 
@@ -85,19 +85,19 @@ form.addEventListener("submit", async (e) => {
   setErr("message", "");
 
   if(nameEl.value.trim().length < 1){
-    setErr("name", "お名前を入力してな。");
+    setErr("name", "お名前を入力してください。");
     ok = false;
   }
   if(!looksLikeEmailOrPhone(contactEl.value)){
-    setErr("contact", "メールアドレスか電話番号を入力してな。");
+    setErr("contact", "メールアドレスか電話番号を入力してください。");
     ok = false;
   }
   if(messageEl.value.trim().length < 1){
-    setErr("message", "メッセージを入力してな。");
+    setErr("message", "メッセージを入力してください。");
     ok = false;
   }
   if(!agreeEl.checked){
-    resultEl.textContent = "ルール同意にチェック入れてな。";
+    resultEl.textContent = "ルール同意にチェックを入れてください。";
     ok = false;
   }
   if(!ok) return;
@@ -130,7 +130,7 @@ form.addEventListener("submit", async (e) => {
     if(res.ok){
       markSent();
       resultEl.textContent =
-        "送信できたで！3営業日以内にお返事するけん待ってな。返信がない場合は再送してな（迷惑メール/ドメイン指定も確認してな）。";
+        "送信できました！3営業日以内にお返事いたします。返信がない場合は再送をお願いします（迷惑メール/ドメイン指定も確認してください）。";
       form.reset();
       inquiryTypeEl.value = document.querySelector(".tab.is-active")?.dataset.type || "質問箱";
       updateCount();
@@ -141,10 +141,10 @@ form.addEventListener("submit", async (e) => {
       const data = await res.json().catch(()=> ({}));
       resultEl.textContent = data?.error
         ? `送信エラー：${data.error}`
-        : "送信に失敗したみたいや…時間おいてもう一回やってな。";
+        : "送信に失敗しました…時間をおいてもう一度送信してください。";
     }
   }catch(err){
-    resultEl.textContent = "通信エラーや…ネット環境を確認して、もう一回送ってな。";
+    resultEl.textContent = "通信エラー…ネット環境を確認して、もう一度送信してください。";
   }
 });
 
@@ -153,8 +153,9 @@ clearBtn.addEventListener("click", () => {
   form.reset();
   inquiryTypeEl.value = document.querySelector(".tab.is-active")?.dataset.type || "質問箱";
   updateCount();
-  resultEl.textContent = "入力をクリアしたで。";
+  resultEl.textContent = "入力をクリアしました。";
   setErr("name", "");
   setErr("contact", "");
   setErr("message", "");
 });
+
