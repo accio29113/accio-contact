@@ -200,6 +200,16 @@ input:focus, textarea:focus{
 }
 
 @media (max-width: 720px){
-  .grid{ grid-template-columns: 1fr; }
+  .wrap{
+    padding: 16px 12px 40px;
+  }
+
+  h1{
+    font-size: 24px;
+  }
+
+  .sub{
+    font-size: 14px;
+  }
 }
 
