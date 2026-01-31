@@ -145,12 +145,19 @@ input:focus, textarea:focus{
 
 .agree{
   grid-column: 1 / -1;
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
+  display: flex;
+  align-items: center;   /* ← 縦ズレ防止 */
+  gap: 6px;              /* ← 距離を縮める */
   color: var(--muted);
-  font-weight:800;
+  font-weight: 800;
 }
+
+/* チェックボックスの位置微調整 */
+.agree input[type="checkbox"]{
+  margin: 0;
+  transform: translateY(1px); /* 文字と高さ合わせ */
+}
+
 
 .actions{ display:flex; gap:10px; flex-wrap:wrap; }
 .btn{
@@ -195,3 +202,4 @@ input:focus, textarea:focus{
 @media (max-width: 720px){
   .grid{ grid-template-columns: 1fr; }
 }
+
